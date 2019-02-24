@@ -16,11 +16,12 @@
         viewId: '',
         releaseStatus: 0,
         previewImg: '',
-        frameSrc: '/preview'
+        frameSrc: ''
       }
     },
     created() {
       // 监听 preview 组件的 mounted，不用监听 iframe 的 load，以减少等待时间
+      this.frameSrc = process.env.NODE_ENV === 'development' ? '/preview' : '/preview/index'
       window.addEventListener('message', (e) => {
         if (e.source === window || e.data !== 'loaded') {
           return
