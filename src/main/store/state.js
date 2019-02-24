@@ -20,7 +20,7 @@ export const state = {
     /**
      * the project container background
      */
-    bgColor: '#fe2f41',
+    bgColor: '#fff',
     /**
      * the project container background image
      */

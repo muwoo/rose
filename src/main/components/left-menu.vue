@@ -58,7 +58,6 @@
     width: 350px;
     overflow: auto;
     height: 100%;
-    border: 1px solid #ddd;
     .ant-collapse-content {
       padding: 0;
     }

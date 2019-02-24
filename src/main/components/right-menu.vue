@@ -1,19 +1,16 @@
 <template>
   <div class="right-menu">
-    <div class="basic-ui">
-      <Collapse value='0'>
-        <Panel :key="index" :name="`${index}`" v-for="(items, index) in canUse">
-          {{items.name}}
+    <Card class="basic-ui">
+      <p slot="title">  {{items.name}}</p>
+      <div :key="index" :name="`${index}`" v-for="(items, index) in canUse">
           <div slot="content">
             <div class="app-aside-list" v-for="item in items.components" @click="addCp(item)">
               <img :src="item.src" class="short-cut" v-if="items.type !== 'system'">
               <span class="aside-item-ele">{{ item.description }}</span>
             </div>
           </div>
-        </Panel>
-
-      </Collapse>
-    </div>
+        </div>
+    </Card>
   </div>
 </template>
 
@@ -44,7 +41,6 @@
 <style lang="scss" type="text/scss">
   @import "../assets/style/var";
   .right-menu {
-    border: 1px solid #ddd;
     .ant-steps {
       .ant-steps-head {
         background: #32495d;

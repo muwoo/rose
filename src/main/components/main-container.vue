@@ -110,7 +110,7 @@
   }
   .main-container {
     background-size: 100%;
-    background: #21374B;
+    background: #efefef;
     border-radius: 40px;
     background-size: 100%;
     padding: 40px 16px;

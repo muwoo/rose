@@ -209,6 +209,7 @@
       position: absolute;
       width: 100%;
       top: 44px;
+      border-top: 1px solid #ddd;
     }
     .editor-select {
       position: absolute;
