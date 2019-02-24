@@ -1,7 +1,7 @@
 <template>
   <div class="right-menu">
     <Card class="basic-ui">
-      <p slot="title">  {{items.name}}</p>
+      <p slot="title">基础组件</p>
       <div :key="index" :name="`${index}`" v-for="(items, index) in canUse">
           <div slot="content">
             <div class="app-aside-list" v-for="item in items.components" @click="addCp(item)">
