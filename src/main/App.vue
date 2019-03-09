@@ -26,8 +26,7 @@
     },
     async mounted() {
       let res = await roseApi.rose_tpl_detail_get()
-      let config = res.data
-      this.canUse = config.canUse
+      this.canUse = res.canUse
     }
   }
 </script>

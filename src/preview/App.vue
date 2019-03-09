@@ -89,10 +89,17 @@
     },
 
     computed: {
-      ...mapGetters(['components', 'sortUI', 'state', 'currentEditor', 'currentPage'])
+      ...mapGetters(['sortUI', 'state', 'currentEditor', 'currentPage']),
+      components: {
+        get() {
+          return this.$store.getters['components']
+        },
+        set(value) {
+          this.$store.commit('updateSortUIProps', {key: 'components', value})
+        }
+      }
     },
     mounted() {
-      console.log(this.sortUI);
       let warp = this.$refs.warp
       window.parent.postMessage(
         'loaded',

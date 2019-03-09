@@ -16,6 +16,8 @@ export const state = {
     /**
      * page title
      */
+    "repoUrl": "direct:https://github.com/muwoo/rose-simple.git", // 对应的git仓库
+    "repoName": "luban",
     title: '标题',
     /**
      * the project container background

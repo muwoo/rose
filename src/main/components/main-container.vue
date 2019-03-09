@@ -3,13 +3,16 @@
     <div class="main-container">
       <div class="control-container">
         <!--<div class="control-btn" @click="operate(1, '正在保存...')"><i class="iconfont icon-save"></i>保存</div>-->
-        <!--<div class="control-btn" @click="operate(4, '环境准备中...')"><i class="iconfont icon-publish"></i>发布</div>-->
+        <div class="control-btn" @click="operate(4, '环境准备中...')"><i class="iconfont icon-publish"></i>发布</div>
       </div>
       <iframe id="frame" frameborder="0" class="pre-view" :src="frameSrc"></iframe>
     </div>
   </div>
 </template>
 <script>
+  import {roseApi} from '../assets/js/api'
+  import {mapGetters} from 'vuex'
+
   export default {
     data() {
       return {
@@ -28,51 +31,22 @@
         }
       })
     },
-    operateMsg(type, status, err) {
-      let successMsg = ''
-      let errorMsg = ''
-      let url = ''
-      switch (type) {
-        case 1:
-          successMsg = '保存成功';
-          errorMsg = err || '保存失败';
-          break;
-        case 3:
-          url = `https://web.u51.com/luban-project-${this.pageId}/index.html`
-          successMsg = `测试地址：${url}`;
-          errorMsg = err || '发布测试失败';
-          break;
-        case 4:
-          url = `https://web.u51.com/luban-project-${this.pageId}/index.html`
-          successMsg = `线上地址：${url}`;
-          errorMsg = err || '发布线上失败';
-          break;
-      }
-      this.$notice[status]({
-        type: status,
-        description: status === 'success' ? successMsg : errorMsg,
-        message: status === 'success' ? '成功' : '错误',
-        duration: 30
-      })
+    computed: {
+      ...mapGetters(['sortUI'])
     },
-
-    async operate(type, msg) {
-      this.$emit('loading', msg)
-      let data = {
-        type,
-        previewImg: this.previewImg,
-        templateId: this.templateId,
-        templateConfig: this.sortUI
+    methods: {
+      async operate(type, msg) {
+        let data = {
+          type,
+          previewImg: this.previewImg,
+          templateId: 1,
+          templateConfig: this.sortUI
+        };
+        try {
+          await roseApi.rose_page_operate_post({data})
+        } catch (e) {
+        }
       }
-      try {
-        await lubanAPI.luban_page_operate_post({data})
-        this.$emit('loaded')
-        this.operateMsg(type, 'success')
-      } catch (e) {
-        this.$emit('loaded')
-        this.operateMsg(type, 'error', e.response ? e.response.data.message : '')
-      }
-      this.saveConfig()
     }
   }
 </script>

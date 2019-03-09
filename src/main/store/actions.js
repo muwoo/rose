@@ -26,8 +26,8 @@ export const actions = {
         name: value.name
       }
     })
-    res.data.data.style = res.data.data.style || {container: {}}
-    commit('addComponent', Object.assign({} , value, res.data))
+    res.data.style = res.data.style || {container: {}}
+    commit('addComponent', Object.assign({} , value, res))
     commit('saveConfig', false)
     helper.postMsgToChild({type: 'syncState', value: state})
   },

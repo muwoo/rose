@@ -10,7 +10,6 @@ function createAPI(baseURL, Authorization) {
       url: conf.url,
       baseURL: baseURL,
       method: conf.method,
-      withCredentials: true,
       Authorization
     }, conf.opts)).then(res => {
       return res.data

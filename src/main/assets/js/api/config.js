@@ -1,4 +1,4 @@
 export default {
   // env: 'production'
-  env: 'mock'
+  env: 'dev'
 };
