@@ -4,6 +4,12 @@
 
 [示例DEMO](https://muwoo.github.io/rose/) （逐步完善中...）
 
+[node构建服务](https://github.com/roooses/rose-server)
+
+[template 模板](https://github.com/roooses/rose-template)
+
+[文本组件示例](https://github.com/roooses/rose-text)
+
 ## 前言
 如果你经常接触一些公司的活动页，可能会经常头疼以下问题：这些项目周期短，需求频繁，迭代快，技术要求不高，成长空间也小。但是我们还是马不停蹄的赶着产品提来的一个个需求，随着公司规模的增加，我们不可能无限制的增加人手不断地重复着这些活动。这里我就不具体介绍一些有的没的的一些概念了，因为要介绍的概念实在太多了，作为一个前端的我们，直接上代码撸就好了！！！！
 
